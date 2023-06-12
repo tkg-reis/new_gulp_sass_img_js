@@ -1,0 +1,10 @@
+// header section
+
+@use 'breakpoints' as bp;
+@use 'variable' as var;
+@use 'mixin' as min;
+
+.header {
+    height: 100px;
+    width: 100%;
+}

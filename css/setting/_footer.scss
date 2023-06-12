@@ -1,0 +1,10 @@
+// footer section
+
+@use 'breakpoints' as bp;
+@use 'variable' as var;
+@use 'mixin' as min;
+
+.footer {
+    width: 100%;
+    height: 180px;
+}

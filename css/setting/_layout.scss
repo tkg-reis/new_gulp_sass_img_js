@@ -1,0 +1,13 @@
+// layout
+
+body > section {
+    padding: 40px 16px;
+
+    @media screen and (min-width: 1080px) {
+        & {
+            padding: 40px 150px;
+        }
+    }
+}
+
+// end

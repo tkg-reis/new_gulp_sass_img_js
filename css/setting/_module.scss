@@ -1,0 +1,247 @@
+// module
+@use 'variable' as var;
+@use 'breakpoints' as bp;
+@use 'mixin' as min;
+
+.m_topToBtn {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    font-size: 36px;
+    color: var.$blue-color; 
+    cursor: pointer;
+    z-index: 10000;
+    transition: all .25s;
+    opacity: 0;
+
+    @include bp.mq() {
+        font-size: 48px;    
+    }
+}
+
+// .colorWhite {
+//     color: var.$white-color;
+// }
+
+// .m_top_container {
+//     @include min.flex();
+//     flex-direction: column;
+// }
+
+// .m_section_img__wrapper {
+//     @include min.flex();
+//     position: relative;
+//     transition: all .45s ease;
+//     height: 200px;
+//     width: 200px;
+
+//     @include bp.mq() {
+//         width: 400px;
+//         height: 400px;
+//     }
+    
+//     &::before {
+//         content: '';
+//         position: absolute;
+//         transition: all .45s ease;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background-color: var.$white-color;
+//         z-index: 20;
+//         transform-origin: center;
+//         transform: scale(1);
+//         border-radius: 100vh;
+//     }
+
+//     &.active::before {
+//         transform: scale(0);
+//     }
+
+//     .m_section_img {
+//         transition: all .45s ease;
+//         height: 100%;
+//         width: 100%;
+//         border-radius: 50%;
+//         position: absolute;
+//         overflow: hidden;
+//         object-fit: cover;
+//     }
+// }
+
+// .m_sec_ttl__wrapper {
+//     padding-top: 64px;
+
+//     .m_sec__ttl {
+//         font-size: 32px;
+//         font-weight: bold;
+//         text-align: center;
+//         margin-bottom: 32px;
+        
+//         @include bp.mq(md) {
+//             font-size: 48px;
+//         }
+        
+//         @include bp.mq() {
+//             white-space: nowrap;
+//             margin-top: 80px;
+//             font-size: 64px;
+//         }
+
+//         @include bp.mq(xl) {
+//             font-size: 72px;
+//         }
+//     }   
+// }
+
+// .m_section_textcontent {
+//     margin-top: 48px;
+
+//     &__text {
+//         font-size: 16px;
+//         margin-top: 48px;
+
+//         @include bp.mq(md) {
+//             font-size: 24px;
+//         }
+
+//         @include bp.mq() {
+//             margin-top: 64px;
+//             font-size: 32px;
+//         }
+
+//         @include bp.mq(xl) {
+//             font-size: 40px;
+//         }
+
+//         &__primary {
+//             text-decoration: underline;
+//             color: var.$blue-color;
+
+//             @include bp.mq(md) {
+//                 font-size: 24px;
+//                 text-decoration: underline;
+//                 color: var.$blue-color;
+//             }
+
+//             @include bp.mq() {
+//                 font-size: 32px;
+//                 text-decoration: underline;
+//                 color: var.$blue-color;
+//             }
+
+//             @include bp.mq(xl) {
+//                 font-size: 40px;
+//                 text-decoration: underline;
+//                 color: var.$blue-color;
+//             }
+//         }
+//     }
+// }
+
+// .m_section_btn_wrapper {
+//     width: 230px;
+//     text-align: center;
+//     @include min.flex();
+//     margin: 32px auto 0 auto;
+//     white-space: nowrap;
+
+//     @include bp.mq() {
+//         width: 330px;
+//     }
+
+//     &__btn {
+//         background-color: var.$sub-wineredColor-darky;
+//         border-radius: 100px;
+//         padding: 20px 68px;
+//         text-align: center;
+//         width: 100%;
+        
+//         &:hover {
+//             cursor: pointer;
+//             opacity: 0.9;
+//         }
+
+//         &__link {
+//             color: var.$white-color;
+//             white-space: nowrap;
+//         }
+//     }
+// }
+
+// .m_case{
+
+//     &_container {
+//         margin: 40px auto 0 auto;
+//     }
+    
+//     &__wrapper {
+//         margin: 0 auto;
+//         max-width: 500px;
+//         overflow: hidden;
+//         @include bp.mq() {
+//             max-width: 800px;
+//         }
+        
+//         &:not(:first-child) {
+//             margin-top: 32px;
+//         }
+//     }
+    
+//     &_quest {
+//         text-align: center;
+//         @include min.flex(space-between);
+//         gap: 8px;
+//         background-color: var.$main-windRedColor-Lighty;
+//         border-radius: 10px 10px 0 0;
+//         padding: 8px 24px;
+//         transition: all .25s;
+//         cursor: pointer;
+
+//         &__ttl {
+//             font-weight: bold;
+
+//             @include bp.mq(md) {
+//                 font-size: 24px;
+//             }
+
+//             @include bp.mq() {
+//                 font-size: 28px;
+//             }
+
+//             & ~ i {
+//                 font-size: 16px;
+
+//                 @include bp.mq(md) {
+//                     font-size: 24px;
+//                 }
+//             }
+//         }
+//     }
+
+//     &_answ {
+//         visibility: hidden;
+//         padding: 8px 16px;
+//         border:1px solid var.$main-windRedColor-Lighty;
+//         text-align: center;
+//         line-height: 0;
+//         height: 0;
+//         overflow: hidden;
+//         font-size: 20px;
+
+//         &.is_open {
+//             visibility: visible;
+//             height: auto;
+//             line-height: normal;
+//         }
+
+//         &_txt {
+//             padding-bottom: 8px;
+//         }
+//     }
+
+// }
+
+
+// // end

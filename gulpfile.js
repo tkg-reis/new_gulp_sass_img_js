@@ -1,6 +1,6 @@
 const { src, dest, series, watch } = require("gulp");
 const autoPrefixer = require("gulp-autoprefixer");
-const imageMin = require("gulp-imagemin").default;
+const imageMin = require("gulp-imagemin");
 // const mozjpeg = require("imagemin-mozjpeg");
 const pngquant = require("imagemin-pngquant");
 const changed = require("gulp-changed");
@@ -10,6 +10,8 @@ const purgecss = require("gulp-purgecss");
 const cleancss = require("gulp-clean-css");
 const sass = require("gulp-sass")(require("sass"));
 
+
+// command npx gulp sass
 function defaultTask() {
   return watch(["./css/*.scss", "./css/setting/*.scss"], () => {
     return src("css/main.scss")
@@ -21,6 +23,7 @@ function defaultTask() {
 
 exports.default = defaultTask;
 
+// command npx gulp imagemin
 function imagemin(done) {
   src("./img/**")
     .pipe(changed("./dist/img/"))
@@ -31,7 +34,7 @@ function imagemin(done) {
           speed: 1,
         }),
         // jpegはcommonjsの環境下でgulpでは使用が不可。ejs(import)形式でしか無理そう。
-//         mozjpeg({ quality: 65 }),
+        // mozjpeg({ quality: 65 }),
         imageMin.svgo(),
         imageMin.optipng({ optimizationLevel: 5 }),
         imageMin.gifsicle(),
@@ -44,17 +47,18 @@ function imagemin(done) {
 
 exports.imagemin = imagemin;
 
+// command npx gulp js
 function js(done) {
   src("./js/**/*.js")
     .pipe(plumber())
     .pipe(uglify())
     .pipe(dest("./dist/js/"));
-
   done();
 }
 
 exports.js = js;
 
+// command gulp minify
 function minify(done) {
   src("./css/*.css")
     .pipe(plumber())
